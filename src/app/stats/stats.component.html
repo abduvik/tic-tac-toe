@@ -1,0 +1,31 @@
+<table class="table table-striped table-inverse table-responsive">
+  <thead class="thead-inverse">
+    <tr>
+      <th></th>
+      <th>Player A (X)</th>
+      <th>Player B (O)</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td scope="row">Won</td>
+        <td>{{ stats[PLAYER_A].won }}</td>
+        <td>{{ stats[PLAYER_B].won }}</td>
+      </tr>
+      <tr>
+        <td scope="row">Lost</td>
+        <td>{{ stats[PLAYER_B].won }}</td>
+        <td>{{ stats[PLAYER_A].won }}</td>
+      </tr>
+      <tr>
+        <td scope="row">Draw</td>
+        <td>{{ stats.draw }}</td>
+        <td>{{ stats.draw }}</td>
+      </tr>
+      <tr>
+        <td scope="row">Time</td>
+        <td>{{ stats[PLAYER_A].time }}</td>
+        <td>{{ stats[PLAYER_B].time }}</td>
+      </tr>
+    </tbody>
+</table>

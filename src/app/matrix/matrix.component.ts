@@ -2,7 +2,8 @@ import {
   SetWinner,
   SetDraw,
   NewGame,
-  TogglePlayer
+  TogglePlayer,
+  AddTime
 } from "./../store/app.actions";
 import { Matrix, EMPTY_CELL, GAME_ON, GAME_OFF } from "./../app.types";
 import { AppState } from "./../store/app-state.model";
@@ -16,6 +17,7 @@ import { Component, OnInit } from "@angular/core";
 })
 export class MatrixComponent implements OnInit {
   matrix: Matrix;
+  timer: any;
 
   constructor(private store: Store<AppState>) {}
 
@@ -33,11 +35,13 @@ export class MatrixComponent implements OnInit {
         this.checkDiag(matrix)
       ) {
         this.store.dispatch(new SetWinner(store.currentPlayer));
+        clearInterval(this.timer);
         return;
       }
 
       if (this.checkDraw(matrix)) {
         this.store.dispatch(new SetDraw());
+        clearInterval(this.timer);
         return;
       }
     });
@@ -45,6 +49,9 @@ export class MatrixComponent implements OnInit {
 
   newGame() {
     this.store.dispatch(new NewGame());
+    this.timer = setInterval(() => {
+      this.store.dispatch(new AddTime());
+    }, 1000);
   }
 
   checkRows(matrix: Matrix) {

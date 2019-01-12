@@ -6,6 +6,7 @@ export const SET_WINNER = "SET_WINNER";
 export const SET_DRAW = "SET_DRAW";
 export const NEW_GAME = "NEW_GAME";
 export const TOGGLE_PLAYER = "TOGGLE_PLAYER";
+export const ADD_TIME = "ADD_TIME";
 
 
 export class GetCellState implements Action {
@@ -35,4 +36,8 @@ export class TogglePlayer implements Action {
   readonly type = TOGGLE_PLAYER;
 }
 
-export type AppActionsTypes = SetCell | GetCellState | SetWinner | SetDraw | NewGame | TogglePlayer;
+export class AddTime implements Action {
+  readonly type = ADD_TIME;
+}
+
+export type AppActionsTypes = SetCell | GetCellState | SetWinner | SetDraw | NewGame | TogglePlayer | AddTime;

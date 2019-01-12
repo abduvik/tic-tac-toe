@@ -47,7 +47,27 @@ export function AppReducers(
       return {
         ...state,
         status: GAME_ON,
-        matrix: newMatrix
+        matrix: newMatrix,
+        stats: {
+          ...state.stats,
+          [PLAYER_A]: { ...state.stats[PLAYER_A], time: 0 },
+          [PLAYER_B]: { ...state.stats[PLAYER_B], time: 0 }
+        }
+      };
+
+    case AppActions.ADD_TIME:
+      if (state.status !== GAME_ON) {
+        return state;
+      }
+      return {
+        ...state,
+        stats: {
+          ...state.stats,
+          [state.currentPlayer]: {
+            ...state.stats[state.currentPlayer],
+            time: state.stats[state.currentPlayer].time + 1
+          }
+        }
       };
   }
   return state;

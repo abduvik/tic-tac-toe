@@ -1,3 +1,3 @@
-<button (click)="setState()" [disabled]='locked && !gameStatus'>
+<button (click)="setState()" [disabled]='locked && !gameStatus' [ngClass]="(state === playerB) ? 'player_b': ''">
   {{ state }}
 </button>

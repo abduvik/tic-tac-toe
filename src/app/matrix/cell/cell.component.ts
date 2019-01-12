@@ -1,4 +1,4 @@
-import { GAME_ON, EMPTY_CELL } from "./../../app.types";
+import { GAME_ON, EMPTY_CELL, PLAYER_B } from "./../../app.types";
 import * as AppActions from "./../../store/app.actions";
 import { AppState } from "./../../store/app-state.model";
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
@@ -15,6 +15,7 @@ export class CellComponent implements OnInit {
   @Output() stateChange: EventEmitter<null> = new EventEmitter<null>();
   state: string;
   locked: boolean;
+  playerB = PLAYER_B;
 
   constructor(private store: Store<AppState>) {}
 

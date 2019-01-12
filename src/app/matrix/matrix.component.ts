@@ -41,7 +41,6 @@ export class MatrixComponent implements OnInit {
 
       if (this.checkDraw(matrix)) {
         this.store.dispatch(new SetDraw());
-        clearInterval(this.timer);
         return;
       }
     });
@@ -49,6 +48,7 @@ export class MatrixComponent implements OnInit {
 
   newGame() {
     this.store.dispatch(new NewGame());
+    clearInterval(this.timer);
     this.timer = setInterval(() => {
       this.store.dispatch(new AddTime());
     }, 1000);

@@ -10,6 +10,7 @@ import { AppState } from '../store/app-state.model';
 })
 export class StatsComponent implements OnInit {
   stats: any;
+  winner_statement: string;
   PLAYER_A = PLAYER_A;
   PLAYER_B = PLAYER_B;
   constructor(private store: Store<AppState>) { }
@@ -17,6 +18,7 @@ export class StatsComponent implements OnInit {
   ngOnInit() {
     this.store.select('App').subscribe(store => {
       this.stats = store.stats;
+      this.winner_statement = store.winnerStatement;
     });
   }
 

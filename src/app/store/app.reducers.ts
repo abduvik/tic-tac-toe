@@ -17,18 +17,26 @@ export function AppReducers(
         matrix: matrix
       };
     case AppActions.TOGGLE_PLAYER:
+      if (state.status !== GAME_ON) {
+        return state;
+      }
       const nextUser = state.currentPlayer === PLAYER_A ? PLAYER_B : PLAYER_A;
-
+      const turnStatement =
+        nextUser === PLAYER_A ? "Player A Turn" : "Player B Turn";
       return {
         ...state,
+        winnerStatement: turnStatement,
         currentPlayer: nextUser
       };
     case AppActions.SET_WINNER:
       const stats = state.stats[action.winner];
+      const winnerStatement =
+        "Player " + (action.winner === PLAYER_A ? "A" : "B") + " Won!";
       stats.won = stats.won + 1;
       return {
         ...state,
         status: GAME_OFF,
+        winnerStatement: winnerStatement,
         stats: {
           ...state.stats,
           [action.winner]: stats
@@ -38,6 +46,7 @@ export function AppReducers(
       return {
         ...state,
         status: GAME_OFF,
+        winnerStatement: "It's a draw!",
         stats: { ...state.stats, draw: state.stats.draw + 1 }
       };
 
@@ -46,8 +55,10 @@ export function AppReducers(
       const newMatrix = newState.matrix;
       return {
         ...state,
+        currentPlayer: PLAYER_A,
         status: GAME_ON,
         matrix: newMatrix,
+        winnerStatement: "Player A Turn",
         stats: {
           ...state.stats,
           [PLAYER_A]: { ...state.stats[PLAYER_A], time: 0 },

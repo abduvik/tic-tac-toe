@@ -5,6 +5,7 @@ export class AppState {
   matrix: Matrix;
   stats: any;
   status: string;
+  winnerStatement: string;
 
   constructor() {
     this.status = GAME_IDLE;
@@ -24,5 +25,6 @@ export class AppState {
       time: 0
     };
     this.stats.draw = 0;
+    this.winnerStatement = '';
   }
 }

@@ -1,1 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
+.matrix-wrapper {
+  div:first-child {
+    app-cell {
+      button {
+        border-top: 0;
+      }
+    }
+  }
+
+  div:last-child {
+    app-cell {
+      button {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  div {
+    app-cell:first-child {
+      button {
+        border-left: 0;
+      }
+    }
+  }
+
+  div {
+    app-cell:last-child {
+      button {
+        border-right: 0;
+      }
+    }
+  }
+}

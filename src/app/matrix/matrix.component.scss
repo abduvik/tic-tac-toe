@@ -3,12 +3,12 @@
   font-weight: bold;
   padding: 20px 50px;
   font-size: 24px;
-  background-color: #673AB7;
+  background-color: #673ab7;
   color: #fff;
   border: 0;
   border-radius: 15px;
   cursor: pointer;
-  &:hover{
-    background-color: lighten(#673AB7, 5);
+  &:hover {
+    background-color: lighten(#673ab7, 5);
   }
 }

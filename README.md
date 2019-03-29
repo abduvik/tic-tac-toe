@@ -2,7 +2,7 @@
 
 This is a Tic-Tac-Toe game build with Angular 7 and NgRx
 
-## [ Live Demo](playtictactoe.netlify.com " Live Demo")
+## [ Live Demo](https://playtictactoe.netlify.com/ " Live Demo")
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
 
